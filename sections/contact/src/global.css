@@ -1,3 +1,17 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  background-color: papayawhip;
+  color: #555;
+  font-family: sans-serif;
+  font-size: 18px;
+}
+
+h1 {
+  color: #333;
+  font-size: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
