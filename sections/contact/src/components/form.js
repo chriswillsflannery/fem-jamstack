@@ -6,7 +6,7 @@ const init_state = {
   email: '',
   subject: '',
   body: '',
-  status: 'SUCCESS',
+  status: 'PENDING',
 };
 
 const reducer = (state, action) => {
@@ -37,48 +37,53 @@ const Form = () => {
     return <p className={styles.success}>Message sent!</p>
   }
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
-      <label className={styles.label}>
-        Name
+    <>
+      {state.status === 'ERROR' && (
+        <p className={styles.error}>something went wrong</p>
+      )}
+      <form className={`${styles.form} ${state.status === 'PENDING' && styles.pending}`} onSubmit={handleSubmit}>
+        <label className={styles.label}>
+          Name
         <input
-          className={styles.input}
-          type="text"
-          name="name"
-          value={state.name}
-          onChange={handleUpdateValue('name')}
-        />
-      </label>
-      <label className={styles.label}>
-        Email
+            className={styles.input}
+            type="text"
+            name="name"
+            value={state.name}
+            onChange={handleUpdateValue('name')}
+          />
+        </label>
+        <label className={styles.label}>
+          Email
         <input
-          className={styles.input}
-          type="email"
-          name="email"
-          value={state.email}
-          onChange={handleUpdateValue('email')}
-        />
-      </label>
-      <label className={styles.label}>
-        Subject
+            className={styles.input}
+            type="email"
+            name="email"
+            value={state.email}
+            onChange={handleUpdateValue('email')}
+          />
+        </label>
+        <label className={styles.label}>
+          Subject
         <input
-          className={styles.input}
-          type="text"
-          name="subject"
-          value={state.subject}
-          onChange={handleUpdateValue('subject')}
-        />
-      </label>
-      <label className={styles.label}>
-        Body
+            className={styles.input}
+            type="text"
+            name="subject"
+            value={state.subject}
+            onChange={handleUpdateValue('subject')}
+          />
+        </label>
+        <label className={styles.label}>
+          Body
         <textarea
-          className={styles.input}
-          name="body"
-          value={state.body}
-          onChange={handleUpdateValue('body')}
-        />
-      </label>
-      <button className={styles.button}>Send</button>
-    </form>
+            className={styles.input}
+            name="body"
+            value={state.body}
+            onChange={handleUpdateValue('body')}
+          />
+        </label>
+        <button className={styles.button}>Send</button>
+      </form>
+    </>
   );
 }
 
