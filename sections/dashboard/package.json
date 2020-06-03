@@ -1,0 +1,18 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gatsby-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gatsby": "gatsby"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gatsby": "^2.22.17",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
